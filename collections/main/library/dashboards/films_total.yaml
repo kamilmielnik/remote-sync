@@ -1,0 +1,19 @@
+name: Total films
+description: Number of films in the catalogue (Count measure on film).
+entity_id: TY5O1h1IGIL9C9l89TYqn
+collection_id: librarylibrarydashbrd
+dashboard_id: UhICMPuVR5mjBgipMzqAz
+creator_id: kamil@metabase.com
+card_schema: 20
+type: question
+display: scalar
+visualization_settings: {}
+dataset_query:
+  database: Pagila
+  stages:
+  - aggregation: [[measure, {}, YuAkCei3pnjlwwPAgCaq-]]
+    source-table: [Pagila, public, film]
+    lib/type: mbql.stage/mbql
+  lib/type: mbql/query
+serdes/meta:
+- model: Card
