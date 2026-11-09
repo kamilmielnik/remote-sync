@@ -1,0 +1,11 @@
+collection_id: librarylibrarydatadat
+data_source: source-data
+data_source_set: true
+is_published: true
+owner_user_id: kamil@metabase.com
+table_id:
+- Pagila
+- public
+- film
+serdes/meta:
+- model: TableUserSettings

@@ -1,0 +1,7 @@
+name: New SQL snippet
+entity_id: u56XFkbxUtZOaJLADqSyT
+content: select 1;
+creator_id: kamil@metabase.com
+template_tags: {}
+serdes/meta:
+- model: NativeQuerySnippet

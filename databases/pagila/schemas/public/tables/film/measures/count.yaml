@@ -1,0 +1,17 @@
+creator_id: kamil@metabase.com
+definition:
+  database: Pagila
+  stages:
+  - aggregation:
+    - - count
+      - {}
+    source-table:
+    - Pagila
+    - public
+    - film
+    lib/type: mbql.stage/mbql
+  lib/type: mbql/query
+entity_id: YuAkCei3pnjlwwPAgCaq-
+name: Count
+serdes/meta:
+- model: Measure

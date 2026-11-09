@@ -1,0 +1,22 @@
+creator_id: kamil@metabase.com
+entity_id: CAuR0u78a389k-PrEOcnw
+indexes: []
+name: Pre-2010 films
+owner_user_id: kamil@metabase.com
+source:
+  query:
+    database: Pagila
+    stages:
+    - native: select * from "public"."film" where release_year < 2010
+      lib/type: mbql.stage/native
+    lib/type: mbql/query
+  type: query
+source_database_id: Pagila
+tags: []
+target:
+  database: Pagila
+  name: pre-2010_films
+  schema: partman
+  type: table
+serdes/meta:
+- model: Transform

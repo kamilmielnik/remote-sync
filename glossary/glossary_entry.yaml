@@ -1,0 +1,6 @@
+creator_id: kamil@metabase.com
+definition: Glossary definition
+entity_id: SX1T3PCElLuS1WfyqD8JK
+term: Glossary entry
+serdes/meta:
+- model: Glossary
