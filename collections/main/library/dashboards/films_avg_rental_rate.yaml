@@ -4,6 +4,7 @@ entity_id: 0YjdIkljzSJtkrFk7bwzn
 collection_id: librarylibrarydashbrd
 dashboard_id: UhICMPuVR5mjBgipMzqAz
 creator_id: kamil@metabase.com
+card_schema: 20
 type: question
 display: scalar
 visualization_settings: {}
