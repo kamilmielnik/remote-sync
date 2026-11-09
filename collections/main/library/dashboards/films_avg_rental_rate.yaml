@@ -1,0 +1,18 @@
+name: Average rental rate
+description: Mean rental rate per film.
+entity_id: 0YjdIkljzSJtkrFk7bwzn
+collection_id: librarylibrarydashbrd
+dashboard_id: UhICMPuVR5mjBgipMzqAz
+creator_id: kamil@metabase.com
+type: question
+display: scalar
+visualization_settings: {}
+dataset_query:
+  database: Pagila
+  stages:
+  - aggregation: [[avg, [field, {base-type: type/Float, effective-type: type/Float}, [Pagila, public, film, rental_rate]]]]
+    source-table: [Pagila, public, film]
+    lib/type: mbql.stage/mbql
+  lib/type: mbql/query
+serdes/meta:
+- model: Card

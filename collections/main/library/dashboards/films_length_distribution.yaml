@@ -1,0 +1,20 @@
+name: Film length distribution
+description: Number of films in 10-minute runtime bands.
+entity_id: vAFqYWJv-yfBKx8aEC-ee
+collection_id: librarylibrarydashbrd
+dashboard_id: UhICMPuVR5mjBgipMzqAz
+creator_id: kamil@metabase.com
+type: question
+display: bar
+visualization_settings: {}
+dataset_query:
+  database: Pagila
+  stages:
+  - aggregation: [[measure, {}, YuAkCei3pnjlwwPAgCaq-]]
+    breakout:
+    - [field, {base-type: type/Integer, effective-type: type/Integer, binning: {strategy: bin-width, bin-width: 10}}, [Pagila, public, film, length]]
+    source-table: [Pagila, public, film]
+    lib/type: mbql.stage/mbql
+  lib/type: mbql/query
+serdes/meta:
+- model: Card

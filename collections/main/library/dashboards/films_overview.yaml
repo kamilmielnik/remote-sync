@@ -1,0 +1,96 @@
+name: Films overview
+description: Catalogue-level view of the film table - size, runtime, rental pricing and rental terms.
+entity_id: UhICMPuVR5mjBgipMzqAz
+collection_id: librarylibrarydashbrd
+creator_id: kamil@metabase.com
+parameters: []
+auto_apply_filters: true
+width: fixed
+tabs: []
+dashcards:
+- entity_id: BhaHB5pslvMnARC3JasRZ
+  row: 0
+  col: 0
+  size_x: 24
+  size_y: 2
+  card_id: null
+  parameter_mappings: []
+  series: []
+  visualization_settings:
+    virtual_card:
+      display: text
+    text: "Films overview. Everything here reads the Pagila film table and covers every film in the catalogue. The long-films count uses the Long movies segment (length over 120 minutes)."
+- entity_id: c4USzgckS3v_tx9IFM4ny
+  row: 2
+  col: 0
+  size_x: 6
+  size_y: 3
+  card_id: TY5O1h1IGIL9C9l89TYqn
+  parameter_mappings: []
+  series: []
+  visualization_settings: {}
+- entity_id: 2vXV1KOXexNflQc9VI1EO
+  row: 2
+  col: 6
+  size_x: 6
+  size_y: 3
+  card_id: QZPWSf4bI6AnlHEXu519x
+  parameter_mappings: []
+  series: []
+  visualization_settings: {}
+- entity_id: r9KEGYtdvqEUOo3biJzqj
+  row: 2
+  col: 12
+  size_x: 6
+  size_y: 3
+  card_id: SOWYBnKVte6p9xFl1gr8N
+  parameter_mappings: []
+  series: []
+  visualization_settings: {}
+- entity_id: zPpfvBdPL3fGdkDe5K3us
+  row: 2
+  col: 18
+  size_x: 6
+  size_y: 3
+  card_id: 0YjdIkljzSJtkrFk7bwzn
+  parameter_mappings: []
+  series: []
+  visualization_settings: {}
+- entity_id: konbbUAdz9bsYBF8VOOs2
+  row: 5
+  col: 0
+  size_x: 12
+  size_y: 6
+  card_id: wwa7zbz7nCOtyesRkQG0J
+  parameter_mappings: []
+  series: []
+  visualization_settings: {}
+- entity_id: yJcSmWu5Fv1MR8PRK1xwj
+  row: 5
+  col: 12
+  size_x: 12
+  size_y: 6
+  card_id: Gtw5IjTfvbORtllbbEJbT
+  parameter_mappings: []
+  series: []
+  visualization_settings: {}
+- entity_id: uZ75H_1O6PV_eB5hqnusM
+  row: 11
+  col: 0
+  size_x: 12
+  size_y: 6
+  card_id: vAFqYWJv-yfBKx8aEC-ee
+  parameter_mappings: []
+  series: []
+  visualization_settings: {}
+- entity_id: VYdWMlbBYpNkr6znMlixZ
+  row: 11
+  col: 12
+  size_x: 12
+  size_y: 6
+  card_id: V2QSgwYBpbCaMPL39z7-t
+  parameter_mappings: []
+  series: []
+  visualization_settings: {}
+serdes/meta:
+- model: Dashboard

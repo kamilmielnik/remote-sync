@@ -1,0 +1,19 @@
+name: Films by rental duration
+description: Number of films per standard rental duration (days).
+entity_id: V2QSgwYBpbCaMPL39z7-t
+collection_id: librarylibrarydashbrd
+dashboard_id: UhICMPuVR5mjBgipMzqAz
+creator_id: kamil@metabase.com
+type: question
+display: bar
+visualization_settings: {}
+dataset_query:
+  database: Pagila
+  stages:
+  - aggregation: [[measure, {}, YuAkCei3pnjlwwPAgCaq-]]
+    breakout: [[field, {base-type: type/Integer, effective-type: type/Integer}, [Pagila, public, film, rental_duration]]]
+    source-table: [Pagila, public, film]
+    lib/type: mbql.stage/mbql
+  lib/type: mbql/query
+serdes/meta:
+- model: Card

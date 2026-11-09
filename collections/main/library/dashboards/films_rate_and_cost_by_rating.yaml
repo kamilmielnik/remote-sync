@@ -1,0 +1,21 @@
+name: Rental rate and replacement cost by rating
+description: Average rental rate and average replacement cost per MPAA rating.
+entity_id: Gtw5IjTfvbORtllbbEJbT
+collection_id: librarylibrarydashbrd
+dashboard_id: UhICMPuVR5mjBgipMzqAz
+creator_id: kamil@metabase.com
+type: question
+display: bar
+visualization_settings: {}
+dataset_query:
+  database: Pagila
+  stages:
+  - aggregation:
+    - [avg, [field, {base-type: type/Float, effective-type: type/Float}, [Pagila, public, film, rental_rate]]]
+    - [avg, [field, {base-type: type/Float, effective-type: type/Float}, [Pagila, public, film, replacement_cost]]]
+    breakout: [[field, {base-type: type/Text, effective-type: type/Text}, [Pagila, public, film, rating]]]
+    source-table: [Pagila, public, film]
+    lib/type: mbql.stage/mbql
+  lib/type: mbql/query
+serdes/meta:
+- model: Card
