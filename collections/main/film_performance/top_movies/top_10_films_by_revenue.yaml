@@ -12,10 +12,18 @@ dataset_query:
   stages:
   - lib/type: mbql.stage/mbql
     source-table: [pagila, marts, fact_rental]
+    joins:
+    - alias: Film
+      strategy: left-join
+      stages:
+      - lib/type: mbql.stage/mbql
+        source-table: [pagila, marts, dim_film]
+      conditions:
+      - [=, {}, [field, {}, [pagila, marts, fact_rental, film_id]], [field, {join-alias: Film}, [pagila, marts, dim_film, film_id]]]
     aggregation:
     - [measure, {lib/uuid: 583f5c1f-f802-4a70-b61b-5cdd1469723f, name: revenue}, ObQK1VVb_JZ8j1Ys7H_NH]
     breakout:
-    - [field, {source-field: [pagila, marts, fact_rental, film_id]}, [pagila, marts, dim_film, title]]
+    - [field, {join-alias: Film}, [pagila, marts, dim_film, title]]
     order-by:
     - [desc, {}, [aggregation, {}, 583f5c1f-f802-4a70-b61b-5cdd1469723f]]
     limit: 10

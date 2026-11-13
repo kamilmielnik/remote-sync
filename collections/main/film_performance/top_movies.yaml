@@ -39,7 +39,7 @@ dashcards:
     target: [dimension, [field, [pagila, marts, fact_rental, rental_date], null]]
   - card_id: qqjO3axgj5VOn9YJ4OC2a
     parameter_id: 69823e31-644f-4b58-a8ad-55cc9e1759ea
-    target: [dimension, [field, [pagila, marts, dim_film, rating], {source-field: [pagila, marts, fact_rental, film_id]}]]
+    target: [dimension, [field, [pagila, marts, dim_film, rating], {join-alias: Film}]]
   series: []
   visualization_settings: {}
   serdes/meta:
@@ -58,7 +58,7 @@ dashcards:
     target: [dimension, [field, [pagila, marts, fact_rental, rental_date], null]]
   - card_id: 0JQCmKTjMOJg7uQNGqe-j
     parameter_id: 69823e31-644f-4b58-a8ad-55cc9e1759ea
-    target: [dimension, [field, [pagila, marts, dim_film, rating], {source-field: [pagila, marts, fact_rental, film_id]}]]
+    target: [dimension, [field, [pagila, marts, dim_film, rating], {join-alias: Film}]]
   series: []
   visualization_settings: {}
   serdes/meta:
@@ -77,7 +77,7 @@ dashcards:
     target: [dimension, [field, [pagila, marts, fact_rental, rental_date], null]]
   - card_id: piWlr3bRkpFDFEcKXxwf9
     parameter_id: 69823e31-644f-4b58-a8ad-55cc9e1759ea
-    target: [dimension, [field, [pagila, marts, dim_film, rating], {source-field: [pagila, marts, fact_rental, film_id]}]]
+    target: [dimension, [field, [pagila, marts, dim_film, rating], {join-alias: Film}]]
   series: []
   visualization_settings: {}
   serdes/meta:
@@ -96,7 +96,7 @@ dashcards:
     target: [dimension, [field, [pagila, marts, fact_rental, rental_date], null]]
   - card_id: DUI40V3qjDUU0Ykv6U0LI
     parameter_id: 69823e31-644f-4b58-a8ad-55cc9e1759ea
-    target: [dimension, [field, [pagila, marts, dim_film, rating], {source-field: [pagila, marts, fact_rental, film_id]}]]
+    target: [dimension, [field, [pagila, marts, dim_film, rating], {join-alias: Film}]]
   series: []
   visualization_settings: {}
   serdes/meta:
@@ -130,7 +130,7 @@ dashcards:
     target: [dimension, [field, [pagila, marts, fact_rental, rental_date], null]]
   - card_id: gRvhsoMZupzx9ipUfzS9A
     parameter_id: 69823e31-644f-4b58-a8ad-55cc9e1759ea
-    target: [dimension, [field, [pagila, marts, dim_film, rating], {source-field: [pagila, marts, fact_rental, film_id]}]]
+    target: [dimension, [field, [pagila, marts, dim_film, rating], {join-alias: Film}]]
   - card_id: gRvhsoMZupzx9ipUfzS9A
     parameter_id: a4d1da57-231d-4e54-9338-4a386436ed70
     target: [dimension, [field, [pagila, marts, dim_film_category, category_name], {join-alias: Film category}]]
@@ -152,7 +152,7 @@ dashcards:
     target: [dimension, [field, [pagila, marts, fact_rental, rental_date], null]]
   - card_id: gH18TWWbfkbeJ_THaxus0
     parameter_id: 69823e31-644f-4b58-a8ad-55cc9e1759ea
-    target: [dimension, [field, [pagila, marts, dim_film, rating], {source-field: [pagila, marts, fact_rental, film_id]}]]
+    target: [dimension, [field, [pagila, marts, dim_film, rating], {join-alias: Film}]]
   - card_id: gH18TWWbfkbeJ_THaxus0
     parameter_id: a4d1da57-231d-4e54-9338-4a386436ed70
     target: [dimension, [field, [pagila, marts, dim_film_category, category_name], {join-alias: Film category}]]

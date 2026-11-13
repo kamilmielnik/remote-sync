@@ -20,6 +20,13 @@ dataset_query:
         source-table: [pagila, marts, dim_film_category]
       conditions:
       - [=, {}, [field, {}, [pagila, marts, fact_rental, film_id]], [field, {join-alias: Film category}, [pagila, marts, dim_film_category, film_id]]]
+    - alias: Film
+      strategy: left-join
+      stages:
+      - lib/type: mbql.stage/mbql
+        source-table: [pagila, marts, dim_film]
+      conditions:
+      - [=, {}, [field, {}, [pagila, marts, fact_rental, film_id]], [field, {join-alias: Film}, [pagila, marts, dim_film, film_id]]]
     aggregation:
     - [measure, {lib/uuid: e26ec057-cf1e-450f-87f2-3a57676a02cc, name: rentals}, _zEChj15NRtpsqIk8A_NZ]
     breakout:
