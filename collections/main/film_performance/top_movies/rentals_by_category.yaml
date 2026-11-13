@@ -29,5 +29,6 @@ dataset_query:
 parameters: []
 parameter_mappings: []
 visualization_settings: {}
+card_schema: 24
 serdes/meta:
 - { id: gRvhsoMZupzx9ipUfzS9A, label: rentals_by_category, model: Card }

@@ -20,5 +20,6 @@ dataset_query:
 parameters: []
 parameter_mappings: []
 visualization_settings: {}
+card_schema: 24
 serdes/meta:
 - { id: piWlr3bRkpFDFEcKXxwf9, label: rentals_and_revenue_by_mpaa_rating, model: Card }

@@ -22,5 +22,6 @@ dataset_query:
 parameters: []
 parameter_mappings: []
 visualization_settings: {}
+card_schema: 24
 serdes/meta:
 - { id: qqjO3axgj5VOn9YJ4OC2a, label: top_10_films_by_rentals, model: Card }

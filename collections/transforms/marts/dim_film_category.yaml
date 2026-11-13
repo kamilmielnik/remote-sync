@@ -1,3 +1,4 @@
+indexes: []
 name: dim_film_category
 description: "One row per: film and category. Key: film_category_key (film_id-category_id). Sources: public.film_category, public.category. Definition: which categories each film belongs to, with the category name. Caveats: a film belongs to 1-3 categories, so joining this table to rentals counts a film once per category and category totals overlap; a repeated film-category pair in the source collapses to one row; a category missing from public.category keeps its row with a null category_name."
 entity_id: 3W0OWBYnsMneS-tiKqjMy
@@ -32,6 +33,7 @@ source:
         LEFT JOIN public.category AS c
           ON c.category_id = p.category_id
       template-tags: {}
+tags: []
 target:
   database: pagila
   type: table

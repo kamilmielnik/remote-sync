@@ -1,3 +1,4 @@
+indexes: []
 name: dim_film
 description: "One row per: film. Key: film_id. Sources: public.film, public.language, public.rental, public.inventory. Definition: each film with its title, MPAA rating, language and all-time rental count; rentals_rank_all_time orders films by all-time rentals, most first, ties broken by title then film_id, so ranks are 1..N with no ties. Caveats: films never rented (no copies) have rentals_all_time 0 and rank last; the rank is all-time and does not follow dashboard date filters."
 entity_id: qQD8MD8G9NmOxWf6GYaSa
@@ -45,6 +46,7 @@ source:
         LEFT JOIN film_rentals AS fr
           ON fr.film_id = f.film_id
       template-tags: {}
+tags: []
 target:
   database: pagila
   type: table
