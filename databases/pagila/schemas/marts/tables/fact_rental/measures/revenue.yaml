@@ -1,0 +1,14 @@
+name: Revenue
+description: "Sum of recorded payments for rentals (amount_paid), credited to the rental's date, not the payment date. The 749 rentals with no recorded payment add nothing; they are not counted as 0-value sales."
+entity_id: ObQK1VVb_JZ8j1Ys7H_NH
+creator_id: internal@metabase.com
+definition:
+  lib/type: mbql/query
+  database: pagila
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [pagila, marts, fact_rental]
+    aggregation:
+    - [sum, {}, [field, {}, [pagila, marts, fact_rental, amount_paid]]]
+serdes/meta:
+- { id: ObQK1VVb_JZ8j1Ys7H_NH, label: revenue, model: Measure }

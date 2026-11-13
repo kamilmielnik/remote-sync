@@ -1,0 +1,7 @@
+name: marts
+description: Final-layer transforms in schema marts, the tables people read. Full rebuild on every run.
+entity_id: ipmGMgipslAkePDb6JyAP
+slug: marts
+namespace: transforms
+serdes/meta:
+- { id: ipmGMgipslAkePDb6JyAP, label: marts, model: Collection }

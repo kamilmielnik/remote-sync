@@ -1,0 +1,165 @@
+name: Top movies
+description: Films ranked by rentals and by recorded payment revenue, with views by MPAA rating, by category and over time. Rentals and revenue are both dated by rental date.
+entity_id: Da-VStj6H0O_6KRcOP1Cm
+creator_id: internal@metabase.com
+collection_id: anpvdJxDOuU6CziDprpp1
+width: fixed
+auto_apply_filters: true
+parameters:
+- { id: 95366d63-a8af-4244-a2c1-713e7a57426a, name: Rental date, slug: rental_date, type: date/all-options, sectionId: date, position: 0 }
+- { id: 69823e31-644f-4b58-a8ad-55cc9e1759ea, name: MPAA rating, slug: mpaa_rating, type: string/=, sectionId: string, position: 1 }
+- { id: a4d1da57-231d-4e54-9338-4a386436ed70, name: Category, slug: category, type: string/=, sectionId: string, position: 2 }
+tabs: []
+dashcards:
+- entity_id: sFaSSNrWL-UbrVAiKPl7l
+  card_id: null
+  row: 0
+  col: 0
+  size_x: 24
+  size_y: 3
+  dashboard_tab_id: null
+  parameter_mappings: []
+  series: []
+  visualization_settings:
+    virtual_card: { display: text, archived: false, dataset_query: {}, visualization_settings: {} }
+    text: "**Top movies.** Data from February 2022 to July 2026, rebuilt from pagila's rental and payment tables when the branch is applied (no schedule yet). Rentals = number of rentals; Revenue = recorded payments, credited to the rental date (749 rentals have no recorded payment and add no revenue). Status: Draft, totals checked against the source tables, not against an outside reference. The Rental date and MPAA rating filters apply to every card; Category applies to the two category cards."
+  serdes/meta:
+  - { id: Da-VStj6H0O_6KRcOP1Cm, model: Dashboard }
+  - { id: sFaSSNrWL-UbrVAiKPl7l, model: DashboardCard }
+- entity_id: jn3UxdS-_kJMnZ-FvNJ30
+  card_id: qqjO3axgj5VOn9YJ4OC2a
+  row: 3
+  col: 0
+  size_x: 12
+  size_y: 7
+  dashboard_tab_id: null
+  parameter_mappings:
+  - card_id: qqjO3axgj5VOn9YJ4OC2a
+    parameter_id: 95366d63-a8af-4244-a2c1-713e7a57426a
+    target: [dimension, [field, [pagila, marts, fact_rental, rental_date], null]]
+  - card_id: qqjO3axgj5VOn9YJ4OC2a
+    parameter_id: 69823e31-644f-4b58-a8ad-55cc9e1759ea
+    target: [dimension, [field, [pagila, marts, dim_film, rating], {join-alias: Film}]]
+  series: []
+  visualization_settings: {}
+  serdes/meta:
+  - { id: Da-VStj6H0O_6KRcOP1Cm, model: Dashboard }
+  - { id: jn3UxdS-_kJMnZ-FvNJ30, model: DashboardCard }
+- entity_id: t8UqEAOSSxtUpzT1gRJbb
+  card_id: 0JQCmKTjMOJg7uQNGqe-j
+  row: 3
+  col: 12
+  size_x: 12
+  size_y: 7
+  dashboard_tab_id: null
+  parameter_mappings:
+  - card_id: 0JQCmKTjMOJg7uQNGqe-j
+    parameter_id: 95366d63-a8af-4244-a2c1-713e7a57426a
+    target: [dimension, [field, [pagila, marts, fact_rental, rental_date], null]]
+  - card_id: 0JQCmKTjMOJg7uQNGqe-j
+    parameter_id: 69823e31-644f-4b58-a8ad-55cc9e1759ea
+    target: [dimension, [field, [pagila, marts, dim_film, rating], {join-alias: Film}]]
+  series: []
+  visualization_settings: {}
+  serdes/meta:
+  - { id: Da-VStj6H0O_6KRcOP1Cm, model: Dashboard }
+  - { id: t8UqEAOSSxtUpzT1gRJbb, model: DashboardCard }
+- entity_id: iCjsS07p2c-YOAl3iZLGL
+  card_id: piWlr3bRkpFDFEcKXxwf9
+  row: 10
+  col: 0
+  size_x: 12
+  size_y: 6
+  dashboard_tab_id: null
+  parameter_mappings:
+  - card_id: piWlr3bRkpFDFEcKXxwf9
+    parameter_id: 95366d63-a8af-4244-a2c1-713e7a57426a
+    target: [dimension, [field, [pagila, marts, fact_rental, rental_date], null]]
+  - card_id: piWlr3bRkpFDFEcKXxwf9
+    parameter_id: 69823e31-644f-4b58-a8ad-55cc9e1759ea
+    target: [dimension, [field, [pagila, marts, dim_film, rating], {join-alias: Film}]]
+  series: []
+  visualization_settings: {}
+  serdes/meta:
+  - { id: Da-VStj6H0O_6KRcOP1Cm, model: Dashboard }
+  - { id: iCjsS07p2c-YOAl3iZLGL, model: DashboardCard }
+- entity_id: Ioh0k1jwYlvWh_YhL-QPV
+  card_id: DUI40V3qjDUU0Ykv6U0LI
+  row: 10
+  col: 12
+  size_x: 12
+  size_y: 6
+  dashboard_tab_id: null
+  parameter_mappings:
+  - card_id: DUI40V3qjDUU0Ykv6U0LI
+    parameter_id: 95366d63-a8af-4244-a2c1-713e7a57426a
+    target: [dimension, [field, [pagila, marts, fact_rental, rental_date], null]]
+  - card_id: DUI40V3qjDUU0Ykv6U0LI
+    parameter_id: 69823e31-644f-4b58-a8ad-55cc9e1759ea
+    target: [dimension, [field, [pagila, marts, dim_film, rating], {join-alias: Film}]]
+  series: []
+  visualization_settings: {}
+  serdes/meta:
+  - { id: Da-VStj6H0O_6KRcOP1Cm, model: Dashboard }
+  - { id: Ioh0k1jwYlvWh_YhL-QPV, model: DashboardCard }
+- entity_id: JMWzCwAmNFR867I7P3Aew
+  card_id: null
+  row: 16
+  col: 0
+  size_x: 24
+  size_y: 1
+  dashboard_tab_id: null
+  parameter_mappings: []
+  series: []
+  visualization_settings:
+    virtual_card: { display: heading, archived: false, dataset_query: {}, visualization_settings: {} }
+    text: "By category (a film in several categories counts in each)"
+  serdes/meta:
+  - { id: Da-VStj6H0O_6KRcOP1Cm, model: Dashboard }
+  - { id: JMWzCwAmNFR867I7P3Aew, model: DashboardCard }
+- entity_id: H8B0ibSiHB6aWrSBQWwWM
+  card_id: gRvhsoMZupzx9ipUfzS9A
+  row: 17
+  col: 0
+  size_x: 12
+  size_y: 8
+  dashboard_tab_id: null
+  parameter_mappings:
+  - card_id: gRvhsoMZupzx9ipUfzS9A
+    parameter_id: 95366d63-a8af-4244-a2c1-713e7a57426a
+    target: [dimension, [field, [pagila, marts, fact_rental, rental_date], null]]
+  - card_id: gRvhsoMZupzx9ipUfzS9A
+    parameter_id: 69823e31-644f-4b58-a8ad-55cc9e1759ea
+    target: [dimension, [field, [pagila, marts, dim_film, rating], {join-alias: Film}]]
+  - card_id: gRvhsoMZupzx9ipUfzS9A
+    parameter_id: a4d1da57-231d-4e54-9338-4a386436ed70
+    target: [dimension, [field, [pagila, marts, dim_film_category, category_name], {join-alias: Film category}]]
+  series: []
+  visualization_settings: {}
+  serdes/meta:
+  - { id: Da-VStj6H0O_6KRcOP1Cm, model: Dashboard }
+  - { id: H8B0ibSiHB6aWrSBQWwWM, model: DashboardCard }
+- entity_id: LJIgoZnoS54SPpbP_4Zww
+  card_id: gH18TWWbfkbeJ_THaxus0
+  row: 17
+  col: 12
+  size_x: 12
+  size_y: 8
+  dashboard_tab_id: null
+  parameter_mappings:
+  - card_id: gH18TWWbfkbeJ_THaxus0
+    parameter_id: 95366d63-a8af-4244-a2c1-713e7a57426a
+    target: [dimension, [field, [pagila, marts, fact_rental, rental_date], null]]
+  - card_id: gH18TWWbfkbeJ_THaxus0
+    parameter_id: 69823e31-644f-4b58-a8ad-55cc9e1759ea
+    target: [dimension, [field, [pagila, marts, dim_film, rating], {join-alias: Film}]]
+  - card_id: gH18TWWbfkbeJ_THaxus0
+    parameter_id: a4d1da57-231d-4e54-9338-4a386436ed70
+    target: [dimension, [field, [pagila, marts, dim_film_category, category_name], {join-alias: Film category}]]
+  series: []
+  visualization_settings: {}
+  serdes/meta:
+  - { id: Da-VStj6H0O_6KRcOP1Cm, model: Dashboard }
+  - { id: LJIgoZnoS54SPpbP_4Zww, model: DashboardCard }
+serdes/meta:
+- { id: Da-VStj6H0O_6KRcOP1Cm, label: top_movies, model: Dashboard }

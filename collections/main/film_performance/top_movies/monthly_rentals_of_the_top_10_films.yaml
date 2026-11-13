@@ -1,0 +1,35 @@
+name: Monthly rentals of the top 10 films
+description: "Monthly rentals of the 10 films with the most rentals across all time (fixed set by all-time rank; it does not re-rank when the date filter changes)."
+entity_id: DUI40V3qjDUU0Ykv6U0LI
+creator_id: internal@metabase.com
+type: question
+display: line
+collection_id: anpvdJxDOuU6CziDprpp1
+dashboard_id: Da-VStj6H0O_6KRcOP1Cm
+dataset_query:
+  lib/type: mbql/query
+  database: pagila
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [pagila, marts, fact_rental]
+    joins:
+    - alias: Film
+      strategy: left-join
+      stages:
+      - lib/type: mbql.stage/mbql
+        source-table: [pagila, marts, dim_film]
+      conditions:
+      - [=, {}, [field, {}, [pagila, marts, fact_rental, film_id]], [field, {join-alias: Film}, [pagila, marts, dim_film, film_id]]]
+    aggregation:
+    - [measure, {name: rentals}, _zEChj15NRtpsqIk8A_NZ]
+    filters:
+    - [<=, {}, [field, {join-alias: Film}, [pagila, marts, dim_film, rentals_rank_all_time]], 10]
+    breakout:
+    - [field, {temporal-unit: month}, [pagila, marts, fact_rental, rental_date]]
+    - [field, {join-alias: Film}, [pagila, marts, dim_film, title]]
+parameters: []
+parameter_mappings: []
+visualization_settings: {}
+card_schema: 24
+serdes/meta:
+- { id: DUI40V3qjDUU0Ykv6U0LI, label: monthly_rentals_of_the_top_10_films, model: Card }

@@ -1,0 +1,14 @@
+name: Rentals
+description: "Number of rentals: one per row of Rental (fact_rental), dated by rental date. Every rental counts, paid or not."
+entity_id: _zEChj15NRtpsqIk8A_NZ
+creator_id: internal@metabase.com
+definition:
+  lib/type: mbql/query
+  database: pagila
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [pagila, marts, fact_rental]
+    aggregation:
+    - [count, {}]
+serdes/meta:
+- { id: _zEChj15NRtpsqIk8A_NZ, label: rentals, model: Measure }

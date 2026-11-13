@@ -1,0 +1,13 @@
+name: film_category_key
+description: Film and category, as film_id-category_id; one row each.
+base_type: type/Text
+database_type: text
+semantic_type: type/PK
+table_id: [pagila, marts, dim_film_category]
+fk_target_field_id: null
+active: true
+serdes/meta:
+- { id: pagila, model: Database }
+- { id: marts, model: Schema }
+- { id: dim_film_category, model: Table }
+- { id: film_category_key, model: Field }

@@ -1,0 +1,20 @@
+name: fact_rental
+display_name: Rental
+description: "One row per rental (key rental_id), with its film, store, customer, staff, rental and return dates, and what was paid for it. amount_paid is the sum of the rental's payments and is null when no payment is recorded."
+db_id: pagila
+schema: marts
+active: true
+visibility_type: null
+field_order: database
+initial_sync_status: complete
+entity_type: entity/TransactionTable
+is_published: true
+collection_id: librarylibrarydatadat
+data_layer: final
+data_source: metabase-transform
+data_authority: computed
+transform_id: WbCM0Nd8R9KwqlwjECjJH
+serdes/meta:
+- { id: pagila, model: Database }
+- { id: marts, model: Schema }
+- { id: fact_rental, model: Table }

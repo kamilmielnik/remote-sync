@@ -1,0 +1,13 @@
+name: rental_id
+description: The rental; one row each.
+base_type: type/Integer
+database_type: int4
+semantic_type: type/PK
+table_id: [pagila, marts, fact_rental]
+fk_target_field_id: null
+active: true
+serdes/meta:
+- { id: pagila, model: Database }
+- { id: marts, model: Schema }
+- { id: fact_rental, model: Table }
+- { id: rental_id, model: Field }

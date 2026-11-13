@@ -1,0 +1,20 @@
+name: dim_film_category
+display_name: Film category
+description: "One row per film and category (key film_category_key). A film belongs to 1-3 categories, so totals by category overlap: a film's rentals count once in each of its categories."
+db_id: pagila
+schema: marts
+active: true
+visibility_type: null
+field_order: database
+initial_sync_status: complete
+entity_type: entity/GenericTable
+is_published: true
+collection_id: librarylibrarydatadat
+data_layer: final
+data_source: metabase-transform
+data_authority: computed
+transform_id: 3W0OWBYnsMneS-tiKqjMy
+serdes/meta:
+- { id: pagila, model: Database }
+- { id: marts, model: Schema }
+- { id: dim_film_category, model: Table }

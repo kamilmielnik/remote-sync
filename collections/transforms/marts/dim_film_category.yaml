@@ -1,0 +1,43 @@
+indexes: []
+name: dim_film_category
+description: "One row per: film and category. Key: film_category_key (film_id-category_id). Sources: public.film_category, public.category. Definition: which categories each film belongs to, with the category name. Caveats: a film belongs to 1-3 categories, so joining this table to rentals counts a film once per category and category totals overlap; a repeated film-category pair in the source collapses to one row; a category missing from public.category keeps its row with a null category_name."
+entity_id: 3W0OWBYnsMneS-tiKqjMy
+creator_id: internal@metabase.com
+collection_id: ipmGMgipslAkePDb6JyAP
+source_database_id: pagila
+source:
+  type: query
+  query:
+    lib/type: mbql/query
+    database: pagila
+    stages:
+    - lib/type: mbql.stage/native
+      native: |-
+        -- One row per: film and category
+        -- Key:         film_category_key (film_id-category_id)
+        -- Sources:     public.film_category, public.category
+        -- Definition:  each film's categories with their names
+        -- Caveats:     films have 1-3 categories, so category totals overlap; repeated pairs collapse to one row
+        WITH pairs AS (
+          SELECT DISTINCT
+            fc.film_id,
+            fc.category_id
+          FROM public.film_category AS fc
+        )
+        SELECT
+          CAST(p.film_id AS TEXT) || '-' || CAST(p.category_id AS TEXT) AS film_category_key,
+          p.film_id,
+          p.category_id,
+          c.name AS category_name
+        FROM pairs AS p
+        LEFT JOIN public.category AS c
+          ON c.category_id = p.category_id
+      template-tags: {}
+tags: []
+target:
+  database: pagila
+  type: table
+  schema: marts
+  name: dim_film_category
+serdes/meta:
+- { id: 3W0OWBYnsMneS-tiKqjMy, label: dim_film_category, model: Transform }

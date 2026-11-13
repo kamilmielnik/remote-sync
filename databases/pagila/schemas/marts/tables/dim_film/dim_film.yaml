@@ -1,0 +1,20 @@
+name: dim_film
+display_name: Film
+description: "One row per film (key film_id), with title, MPAA rating, language, rental rate, length and all-time rentals. rentals_rank_all_time ranks films by all-time rentals (1 = most rented, ties broken by title) and does not follow date filters."
+db_id: pagila
+schema: marts
+active: true
+visibility_type: null
+field_order: database
+initial_sync_status: complete
+entity_type: entity/GenericTable
+is_published: true
+collection_id: librarylibrarydatadat
+data_layer: final
+data_source: metabase-transform
+data_authority: computed
+transform_id: qQD8MD8G9NmOxWf6GYaSa
+serdes/meta:
+- { id: pagila, model: Database }
+- { id: marts, model: Schema }
+- { id: dim_film, model: Table }
