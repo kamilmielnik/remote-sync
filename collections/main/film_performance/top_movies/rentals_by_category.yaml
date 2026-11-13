@@ -1,0 +1,33 @@
+name: Rentals by category
+description: "Rentals by film category. A film in several categories counts in each, so the categories add up to more than total rentals."
+entity_id: gRvhsoMZupzx9ipUfzS9A
+creator_id: internal@metabase.com
+type: question
+display: row
+collection_id: anpvdJxDOuU6CziDprpp1
+dashboard_id: Da-VStj6H0O_6KRcOP1Cm
+dataset_query:
+  lib/type: mbql/query
+  database: pagila
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [pagila, marts, fact_rental]
+    joins:
+    - alias: Film category
+      strategy: inner-join
+      stages:
+      - lib/type: mbql.stage/mbql
+        source-table: [pagila, marts, dim_film_category]
+      conditions:
+      - [=, {}, [field, {}, [pagila, marts, fact_rental, film_id]], [field, {join-alias: Film category}, [pagila, marts, dim_film_category, film_id]]]
+    aggregation:
+    - [measure, {lib/uuid: e26ec057-cf1e-450f-87f2-3a57676a02cc, name: rentals}, _zEChj15NRtpsqIk8A_NZ]
+    breakout:
+    - [field, {join-alias: Film category}, [pagila, marts, dim_film_category, category_name]]
+    order-by:
+    - [desc, {}, [aggregation, {}, e26ec057-cf1e-450f-87f2-3a57676a02cc]]
+parameters: []
+parameter_mappings: []
+visualization_settings: {}
+serdes/meta:
+- { id: gRvhsoMZupzx9ipUfzS9A, label: rentals_by_category, model: Card }

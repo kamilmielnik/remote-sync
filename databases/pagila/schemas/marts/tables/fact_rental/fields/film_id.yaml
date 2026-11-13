@@ -1,0 +1,13 @@
+name: film_id
+description: The film rented, from the rented copy.
+base_type: type/Integer
+database_type: int4
+semantic_type: type/FK
+table_id: [pagila, marts, fact_rental]
+fk_target_field_id: [pagila, marts, dim_film, film_id]
+active: true
+serdes/meta:
+- { id: pagila, model: Database }
+- { id: marts, model: Schema }
+- { id: fact_rental, model: Table }
+- { id: film_id, model: Field }

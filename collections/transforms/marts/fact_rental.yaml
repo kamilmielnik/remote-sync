@@ -1,0 +1,51 @@
+name: fact_rental
+description: "One row per: rental. Key: rental_id. Sources: public.rental, public.inventory, public.payment. Definition: every rental with its film and store (from the rented copy) and what was paid for it; amount_paid is the sum of the rental's payments and payment_count their number. Caveats: amount_paid is null when no payment is recorded (749 rentals), never filled with 0; a recorded payment of 0 stays 0. Payments are attributed to the rental, so revenue is dated by rental_date."
+entity_id: WbCM0Nd8R9KwqlwjECjJH
+creator_id: internal@metabase.com
+collection_id: ipmGMgipslAkePDb6JyAP
+source_database_id: pagila
+source:
+  type: query
+  query:
+    lib/type: mbql/query
+    database: pagila
+    stages:
+    - lib/type: mbql.stage/native
+      native: |-
+        -- One row per: rental
+        -- Key:         rental_id
+        -- Sources:     public.rental, public.inventory, public.payment
+        -- Definition:  every rental with its film, store and the sum and number of its payments
+        -- Caveats:     amount_paid is null when no payment is recorded, never 0-filled; payment_count is 0 then
+        WITH paid AS (
+          SELECT
+            pay.rental_id,
+            SUM(pay.amount) AS amount_paid,
+            COUNT(*) AS payment_count
+          FROM public.payment AS pay
+          GROUP BY pay.rental_id
+        )
+        SELECT
+          r.rental_id,
+          r.rental_date,
+          r.return_date,
+          i.film_id,
+          i.store_id,
+          r.customer_id,
+          r.staff_id,
+          r.inventory_id,
+          paid.amount_paid,
+          COALESCE(paid.payment_count, 0) AS payment_count
+        FROM public.rental AS r
+        LEFT JOIN public.inventory AS i
+          ON i.inventory_id = r.inventory_id
+        LEFT JOIN paid
+          ON paid.rental_id = r.rental_id
+      template-tags: {}
+target:
+  database: pagila
+  type: table
+  schema: marts
+  name: fact_rental
+serdes/meta:
+- { id: WbCM0Nd8R9KwqlwjECjJH, label: fact_rental, model: Transform }

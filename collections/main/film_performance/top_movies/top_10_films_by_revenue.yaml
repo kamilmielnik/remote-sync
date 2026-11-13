@@ -1,0 +1,26 @@
+name: Top 10 films by revenue
+description: "The 10 films with the most recorded payment revenue in the selected period (Revenue measure). Revenue is credited to the rental date; rentals with no recorded payment add nothing."
+entity_id: 0JQCmKTjMOJg7uQNGqe-j
+creator_id: internal@metabase.com
+type: question
+display: row
+collection_id: anpvdJxDOuU6CziDprpp1
+dashboard_id: Da-VStj6H0O_6KRcOP1Cm
+dataset_query:
+  lib/type: mbql/query
+  database: pagila
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [pagila, marts, fact_rental]
+    aggregation:
+    - [measure, {lib/uuid: 583f5c1f-f802-4a70-b61b-5cdd1469723f, name: revenue}, ObQK1VVb_JZ8j1Ys7H_NH]
+    breakout:
+    - [field, {source-field: [pagila, marts, fact_rental, film_id]}, [pagila, marts, dim_film, title]]
+    order-by:
+    - [desc, {}, [aggregation, {}, 583f5c1f-f802-4a70-b61b-5cdd1469723f]]
+    limit: 10
+parameters: []
+parameter_mappings: []
+visualization_settings: {}
+serdes/meta:
+- { id: 0JQCmKTjMOJg7uQNGqe-j, label: top_10_films_by_revenue, model: Card }

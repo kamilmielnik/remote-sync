@@ -1,0 +1,6 @@
+name: Film performance
+description: How films perform with renters - rentals and revenue by film, rating and category.
+entity_id: anpvdJxDOuU6CziDprpp1
+slug: film_performance
+serdes/meta:
+- { id: anpvdJxDOuU6CziDprpp1, label: film_performance, model: Collection }

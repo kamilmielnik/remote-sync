@@ -1,0 +1,24 @@
+name: Rentals and revenue by MPAA rating
+description: "Rentals and Revenue measures by the film's MPAA rating (G, PG, PG-13, R, NC-17). Each rental counts once, so the rows add up to the totals."
+entity_id: piWlr3bRkpFDFEcKXxwf9
+creator_id: internal@metabase.com
+type: question
+display: table
+collection_id: anpvdJxDOuU6CziDprpp1
+dashboard_id: Da-VStj6H0O_6KRcOP1Cm
+dataset_query:
+  lib/type: mbql/query
+  database: pagila
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [pagila, marts, fact_rental]
+    aggregation:
+    - [measure, {name: rentals}, _zEChj15NRtpsqIk8A_NZ]
+    - [measure, {name: revenue}, ObQK1VVb_JZ8j1Ys7H_NH]
+    breakout:
+    - [field, {source-field: [pagila, marts, fact_rental, film_id]}, [pagila, marts, dim_film, rating]]
+parameters: []
+parameter_mappings: []
+visualization_settings: {}
+serdes/meta:
+- { id: piWlr3bRkpFDFEcKXxwf9, label: rentals_and_revenue_by_mpaa_rating, model: Card }

@@ -1,0 +1,35 @@
+name: Top films by category
+description: "Rentals and revenue per film within each category, most rented first. Pick a Category to see that category's ranking; a film in several categories appears under each."
+entity_id: gH18TWWbfkbeJ_THaxus0
+creator_id: internal@metabase.com
+type: question
+display: table
+collection_id: anpvdJxDOuU6CziDprpp1
+dashboard_id: Da-VStj6H0O_6KRcOP1Cm
+dataset_query:
+  lib/type: mbql/query
+  database: pagila
+  stages:
+  - lib/type: mbql.stage/mbql
+    source-table: [pagila, marts, fact_rental]
+    joins:
+    - alias: Film category
+      strategy: inner-join
+      stages:
+      - lib/type: mbql.stage/mbql
+        source-table: [pagila, marts, dim_film_category]
+      conditions:
+      - [=, {}, [field, {}, [pagila, marts, fact_rental, film_id]], [field, {join-alias: Film category}, [pagila, marts, dim_film_category, film_id]]]
+    aggregation:
+    - [measure, {lib/uuid: 182604aa-7f67-42b3-b678-de6c279379c9, name: rentals}, _zEChj15NRtpsqIk8A_NZ]
+    - [measure, {name: revenue}, ObQK1VVb_JZ8j1Ys7H_NH]
+    breakout:
+    - [field, {join-alias: Film category}, [pagila, marts, dim_film_category, category_name]]
+    - [field, {source-field: [pagila, marts, fact_rental, film_id]}, [pagila, marts, dim_film, title]]
+    order-by:
+    - [desc, {}, [aggregation, {}, 182604aa-7f67-42b3-b678-de6c279379c9]]
+parameters: []
+parameter_mappings: []
+visualization_settings: {}
+serdes/meta:
+- { id: gH18TWWbfkbeJ_THaxus0, label: top_films_by_category, model: Card }

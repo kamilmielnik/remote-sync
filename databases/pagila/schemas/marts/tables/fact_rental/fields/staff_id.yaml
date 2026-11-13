@@ -1,0 +1,13 @@
+name: staff_id
+description: The staff member who processed the rental.
+base_type: type/Integer
+database_type: int4
+semantic_type: type/FK
+table_id: [pagila, marts, fact_rental]
+fk_target_field_id: [pagila, public, staff, staff_id]
+active: true
+serdes/meta:
+- { id: pagila, model: Database }
+- { id: marts, model: Schema }
+- { id: fact_rental, model: Table }
+- { id: staff_id, model: Field }

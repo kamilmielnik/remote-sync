@@ -1,0 +1,13 @@
+name: category_id
+description: The category.
+base_type: type/Integer
+database_type: int4
+semantic_type: type/FK
+table_id: [pagila, marts, dim_film_category]
+fk_target_field_id: [pagila, public, category, category_id]
+active: true
+serdes/meta:
+- { id: pagila, model: Database }
+- { id: marts, model: Schema }
+- { id: dim_film_category, model: Table }
+- { id: category_id, model: Field }
